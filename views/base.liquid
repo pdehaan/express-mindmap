@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ title }}</title>
+</head>
+<body>
+
+{% block content %}
+  <div class="container">Bonjour {{ name }}</div>
+
+  <form>
+    <input type="text" name="gist_id" />
+  </form>
+{% endblock %}
+
+</body>
+</html>

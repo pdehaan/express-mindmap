@@ -1,0 +1,26 @@
+{% layout "base.liquid" %}
+
+{% block content %}
+  <p><a href="{{ gist.html_url }}" target="_blank" rel="noopener noreferrer">GitHub Gist <small>({{ gist_id | slice: 0, 7 }})</small></a></p>
+  {% if revision_sha %}
+    <p>Revision: {{ revision_sha | slice: 0, 7 }}</p>
+  {% endif %}
+
+  {% for file in files %}
+    <h2>{{ file.filename }}</h2>
+    <p>Size: {{ file.size }} bytes</p>
+    <pre><code>{{ file.content }}</code></pre>
+    <hr />
+  {% else %}
+    <h2 class="error">No Markdown files found</h2>
+  {% endfor %}
+
+  <p>History: {{ history.length }} revisions</p>
+
+  <ol>
+    <li><a href="/{{ gist_id }}/">Latest</a></li>
+    {% for revision in history %}
+      <li><a href="/{{ gist_id }}/{{ revision.version }}/"><code>{{ revision.version | slice: 0, 7 }}</code> &mdash; {{ revision.committed_at | date: "%b %d, %Y %H:%M" }}</a> <span style="color: green;">{{ revision.change_status.additions | prepend: "+" }}</span> <span style="color: red;">{{ revision.change_status.deletions | prepend: "-" }}</span></li>
+    {% endfor %}
+  </ol>
+{% endblock %}
