@@ -1,19 +1,29 @@
 {
   "name": "express-mindmap",
+  "description": "Dynamically generated mindmaps using Gists and markmap-lib.",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "Peter deHaan <peter@deseloper.com> (https://about.me/peterdehaan)",
-  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/pdehaan/express-mindmap/issues"
+  },
   "dependencies": {
     "@octokit/rest": "^17.5.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "liquidjs": "^9.11.10",
     "markmap-lib": "^0.6.0"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/pdehaan/express-mindmap#readme",
+  "keywords": [],
+  "license": "MPL-2.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdehaan/express-mindmap.git"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
